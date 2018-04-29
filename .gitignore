@@ -1,0 +1,7 @@
+.g8/
+.idea/
+project/project/
+project/target/
+public/
+target/
+logs/
