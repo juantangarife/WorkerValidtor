@@ -17,8 +17,7 @@ public class ProductoMarketplaceDAO {
 
     @Inject
     public ProductoMarketplaceDAO(DatabaseExecutionContext executionContext, EbeanConfig ebeanConfig){
-
-        this.ebeanServer = Ebean.getServer(ebeanConfig.defaultServer());
+        this.ebeanServer = Ebean.getServer("marketplace");
         this.executionContext = executionContext;
     }
 

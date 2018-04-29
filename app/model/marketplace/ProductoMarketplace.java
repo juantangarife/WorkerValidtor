@@ -1,15 +1,18 @@
 package model.marketplace;
 
 import io.ebean.Finder;
-import model.BaseModel;
+import io.ebean.Model;
 import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "productos")
-public class ProductoMarketplace extends BaseModel {
+public class ProductoMarketplace extends Model {
+    @Id
+    public Long id;
 
     @Constraints.Required
     public String descripcion;

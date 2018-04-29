@@ -18,8 +18,7 @@ public class ProductoProveedoresDAO {
 
     @Inject
     public ProductoProveedoresDAO(DatabaseExecutionContext executionContext, EbeanConfig ebeanConfig){
-
-        this.ebeanServer = Ebean.getServer(ebeanConfig.defaultServer());
+        this.ebeanServer = Ebean.getServer("proveedor");
         this.executionContext = executionContext;
     }
 
