@@ -51,18 +51,11 @@ public class HomeController extends Controller {
                         productoMarketplaceService.agregarProductoMarketplace(productoProveedor.id, productoProveedor.descripcion, productoProveedor.precio);
                     }
                 }
-                return ok(views.html.index.render());
-            });
-        }, httpExecutionContext.current());
-    }
 
-    public CompletionStage<Result> deleteFromMarketplace() {
-        return productoProveedoresService.getProductosProveedores().thenComposeAsync(productosProveedores -> {
-            return productoMarketplaceService.getProductosMarketplace().thenApplyAsync(productosMarketplace -> {
                 for (ProductoMarketplace productoMarketplace : productosMarketplace) {
                     boolean existe = false;
                     for (ProductoProveedores productoProveedor : productosProveedores) {
-                        existe = productoProveedor.id.equals(productoMarketplace.id);
+                        existe = existe || productoProveedor.id.equals(productoMarketplace.id);
                     }
                     if (!existe) {
                         productoMarketplaceService.eliminarProductoMarketplace(productoMarketplace.id);
@@ -73,6 +66,4 @@ public class HomeController extends Controller {
             });
         }, httpExecutionContext.current());
     }
-
-
 }

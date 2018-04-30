@@ -21,15 +21,15 @@ public class ProductoMarketplaceServiceImpl implements ProductoMarketplaceServic
         return productoMarketplaceDAO.getProductosMarketplace();
     }
 
-    public Boolean agregarProductoMarketplace(Long id, String descripcion, Double precio){
+    public CompletionStage<Boolean> agregarProductoMarketplace(Long id, String descripcion, Double precio){
         return productoMarketplaceDAO.agregarProductoMarketplace(id, descripcion, precio);
     }
 
-    public Long actualizarProductoMarketplace(Long id, String descripcion, Double precio){
+    public CompletionStage<Long> actualizarProductoMarketplace(Long id, String descripcion, Double precio){
         return productoMarketplaceDAO.actualizarProductoMarketplace(id, descripcion, precio);
     }
 
-    public Boolean eliminarProductoMarketplace(Long id) {
+    public CompletionStage<Boolean> eliminarProductoMarketplace(Long id) {
         return productoMarketplaceDAO.eliminarProductoMarketplace(id);
     }
 }
