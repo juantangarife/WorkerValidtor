@@ -10,7 +10,7 @@ import java.util.concurrent.CompletionStage;
 public interface ProductoMarketplaceService {
 
     public CompletionStage<List<ProductoMarketplace>> getProductosMarketplace();
-    public CompletionStage<Boolean> agregarProductoMarketplace(Long id, String descripcion, Double precio);
-    public CompletionStage<Long> actualizarProductoMarketplace(Long id, String descripcion, Double precio);
-    public CompletionStage<Boolean> eliminarProductoMarketplace(Long id);
+    public Boolean agregarProductoMarketplace(Long id, String descripcion, Double precio);
+    public Long actualizarProductoMarketplace(Long id, String descripcion, Double precio);
+    public Boolean eliminarProductoMarketplace(Long id);
 }
