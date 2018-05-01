@@ -1,28 +1,22 @@
 package controllers;
 
-import model.marketplace.ProductoMarketplace;
-import model.proveedores.ProductoProveedores;
-import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.*;
-import service.producto.marketplace.ProductoMarketplaceService;
-import service.producto.proveedores.ProductoProveedoresService;
+import service.scheduler.SyncProductsDatabasesTask;
 
 import javax.inject.Inject;
-import java.util.concurrent.CompletionStage;
 
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
 public class HomeController extends Controller {
-    @Inject
-    private ProductoProveedoresService productoProveedoresService;
+
+    private final SyncProductsDatabasesTask syncProductsDatabasesTask;
 
     @Inject
-    private ProductoMarketplaceService productoMarketplaceService;
-
-    @Inject
-    private HttpExecutionContext httpExecutionContext;
+    public HomeController(SyncProductsDatabasesTask syncProductsDatabasesTask){
+        this.syncProductsDatabasesTask = syncProductsDatabasesTask;
+    }
 
     /**
      * An action that renders an HTML page with a welcome message.
