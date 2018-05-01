@@ -20,7 +20,6 @@ libraryDependencies ++= Seq(
   javaWs,
   evolutions,
   guice,
-  "org.postgresql" % "postgresql" % "42.2.2",
-  "com.amazonaws" % "aws-java-sdk-sqs" % "1.11.301"
+  "org.postgresql" % "postgresql" % "42.2.2"
 )
 playEbeanDebugLevel := 4
